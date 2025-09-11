@@ -71,4 +71,4 @@ asfis_worms_species = cbind(
     return(rec)
   }))
 )
-readr::write_csv(asfis_worms_species, "../fdi-codelists/global/fdi/cl_asfis_worms.csv")
+readr::write_csv(asfis_worms_species, "../fdi-codelists/global/cwp/cl_asfis_species_enriched_with_worms.csv")
