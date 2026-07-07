@@ -45,11 +45,10 @@ produce_cl_asfis_species <- function(){
 }
 
 #1- ASFIS species list update
-asfis_reformatted = produce_cl_asfis_species()
-readr::write_csv(asfis_reformatted, "../fdi-codelists/global/cwp/cl_asfis_species.csv")
+asfis = produce_cl_asfis_species()
+readr::write_csv(asfis, "../fdi-codelists/global/cwp/cl_asfis_species.csv")
 
 #2- ASFIS-WoRMS mapping
-asfis = readr::read_csv("https://raw.githubusercontent.com/fdiwg/fdi-codelists/refs/heads/main/global/cwp/cl_asfis_species.csv")
 asfis$AphiaID = unlist(fdi4R::get_WoRMS_AphiaIDs(asfis$definition, parallel = FALSE)) #parallelization returns very few matching results
 
 asfis_worms_mapping <- data.frame(
